@@ -1,0 +1,27 @@
+---
+description: Typed content, drafts, and publication rules
+globs: src/content/**/*.{ts,tsx,md,mdx}
+alwaysApply: false
+---
+
+# Content model
+
+Business facts live in typed modules under `src/content/`, not in components. A later CMS should be able to replace those modules without a redesign.
+
+- Service definitions, VaultIQ claims, founder wording, and articles each have an explicit status: `draft` or `published`.
+- Queries that feed pages return `published` only.
+- VaultIQ use cases and feature statements ship as `draft` until someone confirms the product behavior.
+- Insights need title, description, category, date, reading time, and status. No article is public without review.
+- Do not add case studies, quotes, or client names to fill space.
+
+```ts
+// Wrong: a draft essay exported beside published ones with no status
+export const essays = [{ title: "Why systems fail" }];
+
+// Right: status is required and pages filter it
+export const essays = [
+  { slug: "why-systems-fail", status: "draft" as const, title: "Why systems fail" },
+];
+```
+
+Slot list: `docs/CONTENT_INVENTORY.md`.

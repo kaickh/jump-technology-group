@@ -1,0 +1,5 @@
+aws_region       = "us-east-1"
+site_bucket_name = "replace-with-a-globally-unique-bucket-name"
+allowed_origin   = "https://example.com"
+# domain_name    = "jumptechgroup.com"
+# hosted_zone_id = "Z0000000000000"

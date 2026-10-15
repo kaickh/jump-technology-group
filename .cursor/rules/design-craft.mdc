@@ -1,0 +1,34 @@
+---
+description: Visual and interaction craft rules for the Jump website
+alwaysApply: true
+---
+
+# Design craft
+
+Direction A, Warm Editorial, is the baseline until `docs/DECISIONS.md` says otherwise. The idea of "jump" is forward movement: section numbers, a small ascending mark, slight vertical offsets. No bouncing graphics.
+
+## Do not default to
+
+- Blue-purple gradient heroes, glowing blobs, glassmorphism, circuit or robot imagery
+- Equal three-column service cards, fake metric rows, logo walls, or testimonial strips
+- The same card treatment on every section, or a giant closing CTA band on every page
+- Scroll hijacking, custom cursors, or entrance motion on every block
+
+## Require
+
+- The first screen says what Jump does: technology services, managed IT, and business advisory.
+- Change composition between sections. Type and whitespace carry the brand.
+- `#D87560` is about 3.2:1 on white. Use it for marks, not small text. Body text uses `#252B29`.
+- DM Sans for UI and body. Newsreader for limited display type only.
+- Motion needs a purpose. Honor `prefers-reduced-motion`. Target WCAG 2.2 AA.
+- Design 375px layouts on purpose. Do not only stack the desktop page.
+
+If a section still works after swapping in another company name, redesign it. Detail is in `docs/BRAND_DIRECTION.md`.
+
+```tsx
+// Wrong: a generic services grid
+<section className="grid grid-cols-3 gap-6">{services.map(Card)}</section>
+
+// Right: one editorial index, each row a different weight of type and detail
+<ol>{services.map(ServiceIndexRow)}</ol>
+```

@@ -1,0 +1,29 @@
+---
+description: Scope, truthfulness, and delivery boundaries for Jump Technology Group
+alwaysApply: true
+---
+
+# Project charter
+
+Jump Technology Group is an early-stage technology services and consulting company founded by Dwalu Khasu, previously at Airbnb and Meta. The site must sound warm, specific, and competent.
+
+## Truth
+
+- Do not invent clients, logos, testimonials, statistics, certifications, SLAs, or case studies.
+- Airbnb and Meta are prior employers only. Never imply they are clients, partners, or endorsers.
+- VaultIQ is emerging. Keep unverified capabilities in draft content. Do not state them as shipped facts.
+- Do not render unpublished insights as publications.
+- Show contact success only after the backend accepts the submission. Label local mode. Never fake a production send.
+- Do not provision or publish AWS resources without explicit approval.
+
+## Scope
+
+Routes: `/`, `/services`, `/solutions/vaultiq`, `/about`, `/insights`, `/insights/[slug]`, `/contact`, `/privacy`.
+
+Primary nav: Home, Services, About, Insights, Contact. VaultIQ is featured in the story and on Services, not as a sixth nav item.
+
+Read `docs/PROJECT_BRIEF.md`, `docs/BRAND_DIRECTION.md`, and `docs/DECISIONS.md` before design or implementation changes.
+
+## Stack
+
+Next.js App Router, TypeScript, React, Tailwind, static `output: 'export'`. No Vercel, CMS, database, or generic UI kit. Terraform in `infra/terraform/` is defined only. Do not apply it by default.

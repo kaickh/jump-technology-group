@@ -1,0 +1,28 @@
+# OS and editor
+.DS_Store
+
+# Dependencies and Next.js (not created yet)
+node_modules/
+.next/
+out/
+next-env.d.ts
+
+# Local env
+.env
+.env*.local
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+!*.tfvars.example
+
+# Logs
+npm-debug.log*
+
+# Tooling
+.eslintcache
+coverage/
+infra/terraform/dist/
+*.tsbuildinfo

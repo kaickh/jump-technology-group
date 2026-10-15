@@ -1,0 +1,26 @@
+---
+description: AWS and Terraform boundaries for this marketing site
+globs: "{infra/**,*.tf,.github/**}"
+alwaysApply: false
+---
+
+# Infrastructure
+
+Define infrastructure. Do not create live AWS resources unless the user explicitly approves apply.
+
+Target shape, details in `docs/AWS_DEPLOYMENT.md`:
+
+- Private S3 origin, CloudFront, Origin Access Control, ACM in `us-east-1`, Route 53 only when a domain exists
+- CloudFront rewrites to match the static-export trailing-slash routes
+- API Gateway, Lambda, and SES for contact. Fixed recipient. No message-body logs.
+- GitHub Actions with AWS OIDC later. No long-lived access keys in the repo.
+
+```hcl
+# Wrong: applying from a local session because the config parses
+# terraform apply
+
+# Right: plan is reviewable; apply waits for approval
+# terraform plan
+```
+
+Local contact development uses an explicit dev mode and returns a labeled non-production result. A validation or SES failure is an error, not a success state.

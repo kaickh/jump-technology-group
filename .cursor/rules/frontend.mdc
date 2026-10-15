@@ -1,0 +1,30 @@
+---
+description: Frontend architecture and component boundaries
+globs: src/**/*.{ts,tsx,css}
+alwaysApply: false
+---
+
+# Frontend
+
+Static-first Next.js App Router. `output: 'export'`. Trailing slashes are deliberate and consistent. Generate article routes at build time.
+
+- Server components by default. Add `"use client"` only for interaction: mobile nav, the homepage discovery control, VaultIQ stage switch, form state.
+- No animation library unless a specific interaction cannot be done readably in CSS.
+- No component library that sets the visual identity. Build small primitives.
+- Pages compose content objects. Do not hard-code marketing copy inside layout components.
+- Images must work on static export. Decorative images need empty alt text. Portraits need real alternative text once photography exists.
+- One `h1` per page. Do not skip heading levels.
+
+```tsx
+// Wrong: copy trapped in the component
+export function Hero() {
+  return <h1>Revolutionizing the digital landscape</h1>;
+}
+
+// Right: copy from typed content
+export function Hero({ hero }: { hero: HomeContent["hero"] }) {
+  return <h1>{hero.headline}</h1>;
+}
+```
+
+Target routes and file roles are in `docs/ARCHITECTURE.md`.
