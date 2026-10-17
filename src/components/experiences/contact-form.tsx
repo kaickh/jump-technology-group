@@ -57,9 +57,9 @@ export function ContactForm({ endpoint, initialInterest, initialTopic }: Contact
     return (
       <div role="status" className="border-t border-line pt-6">
         {result.status === "sent" ? (
-          <p className="font-serif text-3xl leading-tight tracking-[-0.03em]">Your message is on its way.</p>
+          <p className="font-serif text-3xl font-semibold leading-tight tracking-[-0.03em]">Your message is on its way.</p>
         ) : (
-          <p className="font-serif text-3xl leading-tight tracking-[-0.03em]">Checked on this page only.</p>
+          <p className="font-serif text-3xl font-semibold leading-tight tracking-[-0.03em]">Checked on this page only.</p>
         )}
         <p className="mt-4 max-w-md leading-relaxed text-muted">
           {result.status === "sent"
@@ -140,7 +140,7 @@ export function ContactForm({ endpoint, initialInterest, initialTopic }: Contact
       <div aria-live="polite">
         <button
           type="submit"
-          className="bg-ink px-5 py-3 text-sm text-paper disabled:opacity-60"
+          className="btn btn-primary disabled:opacity-60"
           disabled={pending}
         >
           {pending ? "Sending…" : "Send message"}

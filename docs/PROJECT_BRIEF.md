@@ -68,7 +68,7 @@ Warm, modern, friendly, and precise. Inspired by the qualities of Airbnb, Norgra
 
 The word "jump" should show up as progression: numbers, a small ascending mark, slight vertical offsets, forward motion. Not a literal bounce.
 
-Direction A, Warm Editorial, is the implementation baseline. See `BRAND_DIRECTION.md`.
+The implementation baseline is D-024 in `DECISIONS.md`. `BRAND_DIRECTION.md` records the earlier editorial exploration.
 
 Avoid thoughtless defaults: gradient heroes, abstract 3D, three equal cards, fabricated proof, glassmorphism, robot illustrations, a card on every section, empty superlatives, and motion on every scroll.
 

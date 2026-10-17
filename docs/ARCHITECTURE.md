@@ -18,7 +18,7 @@ The contact API is the exception: API Gateway and Lambda, described in `AWS_DEPL
 ```text
 src/app/                  routes, metadata, sitemap, robots
 src/components/           shared UI primitives and page sections
-src/components/experiences/   discovery control, VaultIQ stages, mobile nav
+src/components/experiences/   VaultIQ stages, approach, contact form, mobile nav
 src/content/              typed business content and articles
 src/lib/                  content queries, metadata helpers, validation shared types
 src/styles/               tokens and global CSS

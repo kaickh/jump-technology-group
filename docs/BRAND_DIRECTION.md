@@ -1,6 +1,6 @@
 # Brand direction
 
-Status: **recommendation, not locked.** Direction A is the baseline to prototype after the open items in `DECISIONS.md` are confirmed or explicitly waived.
+Status: **historical.** Direction A was the first prototype. The live site follows D-024 in `DECISIONS.md` (logo palette, Poppins, VaultIQ as the flagship). Do not revert the interface to this document.
 
 These notes follow the creative principles in the project brief. The reference sites were not inspected in the browser for this document. A short live review of those sites is still worth doing before visual lock, to check rhythm and type scale against the real work rather than memory of it.
 

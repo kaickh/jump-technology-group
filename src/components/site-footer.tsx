@@ -1,13 +1,16 @@
 import Link from "next/link";
 import { navigation, site } from "@/content/site";
+import { Wordmark } from "@/components/wordmark";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-line">
+    <footer className="border-t border-line bg-mist">
       <div className="frame flex flex-col gap-8 py-10 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <p className="font-serif text-2xl tracking-[-0.03em]">{site.name}</p>
-          <p className="mt-2 max-w-xs text-sm text-muted">Technology services, managed IT, and business advisory.</p>
+          <Link href="/" aria-label="Jump Technology Group, home">
+            <Wordmark />
+          </Link>
+          <p className="mt-3 max-w-xs text-sm text-muted">Technology services, managed IT, and business advisory.</p>
         </div>
         <nav aria-label="Footer" className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
           {navigation.map((item) => (

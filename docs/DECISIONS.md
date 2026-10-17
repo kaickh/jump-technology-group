@@ -39,13 +39,13 @@ Date: 2026-10-15.
 Confirmed 2026-10-15 as the working baseline. Final brand lock can still be tuned after the site is reviewed on screen.
 
 ### D-007 — Direction A is the build baseline
-Warm Editorial, with Quiet Systems diagrams only inside VaultIQ and the approach sequence. See `BRAND_DIRECTION.md`.
+Superseded for the interface by D-024. The earlier Warm Editorial prototype remains in `BRAND_DIRECTION.md` as history.
 
 ### D-008 — Accent system 1
-Terracotta `#D87560` is a mark and an underline, not small text. Error text uses `#8C3D2E`. Olive and clay systems stay as unused alternates.
+Superseded by D-024. Terracotta is no longer used on the site.
 
 ### D-009 — Type pairing
-DM Sans for interface and body. Newsreader for limited display. Manrope remains the fallback interface face if DM Sans fails in review.
+Superseded by D-024. Poppins for display, DM Sans for body.
 
 ### D-010 — Headline under test
 "Make your next move a better one." Supporting copy names technology consulting, managed IT, and business advisory. This is not the company tagline.
@@ -55,6 +55,15 @@ Title of the insights publication for this build.
 
 ### D-023 — Primary actions
 "Let's talk" and "See our services." There is no "Explore our work" action until approved public work exists.
+
+### D-016 — Logo
+The navy lockup and icon PNGs from the brand kit are the site logo. Files live in `public/brand/`. A vector master can replace them later without a layout rewrite.
+
+### D-024 — Commercial brand system
+Accepted 2026-10-17. The live interface follows the logo: white ground, navy `#021639`, blue `#0174AD` for emphasized words and links, teal `#00DED8` for marks and the closing action. Teal is not used for small text. Poppins headlines, DM Sans body. Pill actions. VaultIQ is the flagship section. No testimonial, logo wall, or metric row until real proof exists.
+
+### D-025 — GitHub Pages is the public preview
+Accepted 2026-10-17. The static export may be published to a public GitHub repository and GitHub Pages. AWS is still not applied. On that host the contact form stays in labeled local mode until a real endpoint is configured.
 
 ## Assumed until rewritten
 
@@ -72,9 +81,6 @@ The founder block uses a reserved placeholder frame until a real photograph exis
 ### D-015 — Tagline
 Not finalized. Do not crown a tagline in the header.
 
-### D-016 — Logo
-Text wordmark until an official logo file is provided. The header component must be able to swap the wordmark for an image without a layout rewrite.
-
 ### D-017 — VaultIQ behavior
 Capture, organize, and retrieve are illustrative stages. Public pages must label unverified product behavior as draft until someone confirms what the product actually does.
 
@@ -91,4 +97,4 @@ Unknown. CloudFront-related ACM certificates are still required to live in `us-e
 Must match the real contact pipeline. A lawyer needs to review it before launch. The page should say that review is still required until it has happened.
 
 ### D-022 — Reference-site review
-Directions were written from the brief's principles. The listed reference sites have not been reviewed in a browser for this repository yet.
+Origins (`originshq.com`) was reviewed on 2026-10-17 and informed D-024. The earlier reference list in the brief has not been re-reviewed as a set.

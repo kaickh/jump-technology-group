@@ -5,7 +5,7 @@ alwaysApply: true
 
 # Design craft
 
-Direction A, Warm Editorial, is the baseline until `docs/DECISIONS.md` says otherwise. The idea of "jump" is forward movement: section numbers, a small ascending mark, slight vertical offsets. No bouncing graphics.
+D-024 in `docs/DECISIONS.md` is the visual baseline. The idea of "jump" is forward movement: the logo, a teal mark, and a colored word in a headline. No bouncing graphics.
 
 ## Do not default to
 
@@ -18,8 +18,8 @@ Direction A, Warm Editorial, is the baseline until `docs/DECISIONS.md` says othe
 
 - The first screen says what Jump does: technology services, managed IT, and business advisory.
 - Change composition between sections. Type and whitespace carry the brand.
-- `#D87560` is about 3.2:1 on white. Use it for marks, not small text. Body text uses `#252B29`.
-- DM Sans for UI and body. Newsreader for limited display type only.
+- Teal `#00DED8` is for marks and the closing button, not small text. Emphasized words use blue `#0174AD`. Body text uses navy `#021639`.
+- DM Sans for UI and body. Poppins for headlines. One italic blue word per headline is enough.
 - Motion needs a purpose. Honor `prefers-reduced-motion`. Target WCAG 2.2 AA.
 - Design 375px layouts on purpose. Do not only stack the desktop page.
 

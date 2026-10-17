@@ -2,14 +2,19 @@
 
 @theme {
   --font-sans: var(--font-dm-sans), "DM Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-newsreader), Newsreader, Georgia, "Times New Roman", serif;
-  --color-paper: #fbfaf7;
-  --color-ink: #252b29;
-  --color-sage: #e8eee7;
-  --color-clay: #d87560;
-  --color-clay-ink: #8c3d2e;
-  --color-muted: #3f4844;
-  --color-line: #e3ddd4;
+  --font-display: var(--font-poppins), Poppins, "Century Gothic", "Helvetica Neue", Arial, sans-serif;
+  --font-serif: var(--font-poppins), Poppins, "Century Gothic", "Helvetica Neue", Arial, sans-serif;
+  --color-paper: #ffffff;
+  --color-ink: #021639;
+  --color-navy: #021639;
+  --color-mist: #f3f6f9;
+  --color-sage: #f3f6f9;
+  --color-teal: #00ded8;
+  --color-blue: #0174ad;
+  --color-clay: #0174ad;
+  --color-clay-ink: #9f1239;
+  --color-muted: #3e5168;
+  --color-line: #d8dee6;
   --color-white: #ffffff;
 }
 
@@ -35,6 +40,26 @@ textarea {
   font: inherit;
 }
 
+@layer base {
+  h1,
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+  }
+
+  .font-serif {
+    font-family: var(--font-display);
+    letter-spacing: -0.03em;
+  }
+}
+
 h1,
 h2,
 .balance {
@@ -46,12 +71,12 @@ p {
 }
 
 ::selection {
-  background: #d5e0d4;
+  background: #d6f5f3;
   color: var(--color-ink);
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-ink);
+  outline: 2px solid var(--color-blue);
   outline-offset: 3px;
 }
 
@@ -90,9 +115,98 @@ p {
 }
 
 .num {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
+  font-style: normal;
+  font-weight: 700;
+  color: var(--color-blue);
+}
+
+.pop {
+  color: var(--color-blue);
   font-style: italic;
-  font-weight: 450;
+  font-weight: 700;
+}
+
+.pop-light {
+  color: var(--color-teal);
+  font-style: italic;
+  font-weight: 700;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  background: var(--color-white);
+  padding: 0.35rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-ink);
+}
+
+.pill-dot {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 999px;
+  background: var(--color-teal);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-teal) 28%, white);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  border-radius: 999px;
+  padding: 0.72rem 1.15rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background: var(--color-ink);
+  color: white;
+  border-color: var(--color-ink);
+}
+
+.btn-ghost {
+  background: white;
+  color: var(--color-ink);
+  border-color: var(--color-line);
+}
+
+.btn-teal {
+  background: var(--color-teal);
+  color: var(--color-ink);
+  border-color: var(--color-teal);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .btn {
+    transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease;
+  }
+}
+
+.btn-primary:hover {
+  background: var(--color-blue);
+  border-color: var(--color-blue);
+}
+
+.btn-ghost:hover {
+  border-color: var(--color-ink);
+}
+
+.btn-teal:hover {
+  background: white;
+  border-color: white;
 }
 
 .link-strong,
@@ -104,7 +218,7 @@ p {
 }
 
 .link-strong {
-  text-decoration-color: var(--color-clay);
+  text-decoration-color: var(--color-blue);
 }
 
 .link-quiet {
@@ -120,7 +234,7 @@ p {
   width: 100%;
   background: var(--color-white);
   border: 1px solid var(--color-line);
-  border-radius: 2px;
+  border-radius: 0.7rem;
   padding: 0.8rem 0.85rem;
   font: inherit;
   color: var(--color-ink);
@@ -144,7 +258,23 @@ p {
   overflow: hidden;
 }
 
-.discovery-input {
+.lift {
+  background: white;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .lift {
+    transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+  }
+
+  .lift:hover {
+    transform: translateY(-3px);
+    border-color: var(--color-blue);
+    box-shadow: 0 12px 28px rgba(2, 22, 57, 0.07);
+  }
+}
+
+.choice-input {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -152,48 +282,51 @@ p {
   opacity: 0;
 }
 
-.discovery-panel {
-  display: none;
-}
-
-.discovery:has(#forward-technology:checked) .panel-technology,
-.discovery:has(#forward-operations:checked) .panel-operations,
-.discovery:has(#forward-vaultiq:checked) .panel-vaultiq {
-  display: block;
-}
-
-.discovery-label,
+.choice-label,
 .vault-stage {
   position: relative;
-}
-
-.discovery-label {
-  color: var(--color-muted);
   cursor: pointer;
 }
 
-.discovery-label:has(:checked) {
+.choice-label {
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  background: white;
   color: var(--color-ink);
+  padding: 0.55rem 0.95rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1.3;
 }
 
-.discovery-mark {
-  opacity: 0;
+.choice-label:has(:checked),
+.vault-stage:has(:checked) {
+  background: var(--color-ink);
+  color: white;
+  border-color: var(--color-ink);
 }
 
-.discovery-label:has(:checked) .discovery-mark {
-  opacity: 1;
+.choice-label:has(:focus-visible),
+.vault-stage:has(:focus-visible) {
+  outline: 2px solid var(--color-blue);
+  outline-offset: 3px;
 }
 
-.discovery-label:has(:focus-visible) {
-  outline: 2px solid var(--color-ink);
-  outline-offset: 4px;
+.choice-label:hover:not(:has(:checked)),
+.vault-stage:hover:not(:has(:checked)) {
+  border-color: var(--color-blue);
 }
 
+.practice-panel,
 .vault-visual,
 .vault-copy {
   display: none;
 }
 
+.practice:has(#practice-technology:checked) .panel-technology,
+.practice:has(#practice-managed-it:checked) .panel-managed-it,
+.practice:has(#practice-operations:checked) .panel-operations,
+.practice:has(#practice-digital:checked) .panel-digital,
 .vault:has(#stage-capture:checked) .visual-capture,
 .vault:has(#stage-organize:checked) .visual-organize,
 .vault:has(#stage-retrieve:checked) .visual-retrieve,
@@ -204,30 +337,12 @@ p {
 }
 
 .vault-stage {
-  color: var(--color-muted);
-  cursor: pointer;
-  background: transparent;
-  border: 0;
-  padding: 0;
-  text-align: left;
-}
-
-.vault-stage .stage-mark {
-  opacity: 0;
-}
-
-.vault-stage:has(:checked) .stage-mark {
-  opacity: 1;
-}
-
-.vault-stage:has(:checked) {
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  background: white;
   color: var(--color-ink);
-  box-shadow: inset 0 -1px 0 var(--color-clay);
-}
-
-.vault-stage:has(:focus-visible) {
-  outline: 2px solid var(--color-ink);
-  outline-offset: 4px;
+  padding: 0.55rem 1rem;
+  font-weight: 600;
 }
 
 .stage-input {
@@ -237,23 +352,35 @@ p {
   opacity: 0;
 }
 
-.index-row .index-shift {
-  transition: transform 180ms ease;
+@media (prefers-reduced-motion: no-preference) {
+  .practice:has(#practice-technology:checked) .panel-technology,
+  .practice:has(#practice-managed-it:checked) .panel-managed-it,
+  .practice:has(#practice-operations:checked) .panel-operations,
+  .practice:has(#practice-digital:checked) .panel-digital,
+  .vault:has(#stage-capture:checked) .visual-capture,
+  .vault:has(#stage-organize:checked) .visual-organize,
+  .vault:has(#stage-retrieve:checked) .visual-retrieve,
+  .vault:has(#stage-capture:checked) .copy-capture,
+  .vault:has(#stage-organize:checked) .copy-organize,
+  .vault:has(#stage-retrieve:checked) .copy-retrieve {
+    animation: rise 220ms ease;
+  }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .index-row:hover .index-shift {
-    transform: translateY(-2px);
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-
-  .index-row .index-shift {
-    transition: none;
   }
 }
 
@@ -267,9 +394,9 @@ p {
 }
 
 .prose-jump h2 {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-size: 1.7rem;
-  font-weight: 450;
+  font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.2;
   margin-top: 2.4rem;

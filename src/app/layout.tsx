@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Sans, Newsreader } from "next/font/google";
+import { DM_Sans, Poppins } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { site } from "@/content/site";
@@ -12,11 +12,12 @@ const dmSans = DM_Sans({
   variable: "--font-dm-sans",
 });
 
-const newsreader = Newsreader({
+const poppins = Poppins({
   subsets: ["latin"],
   display: "swap",
+  weight: ["500", "600", "700"],
   style: ["normal", "italic"],
-  variable: "--font-newsreader",
+  variable: "--font-poppins",
 });
 
 export const metadata: Metadata = {
@@ -68,7 +69,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   };
 
   return (
-    <html lang="en" className={`${dmSans.variable} ${newsreader.variable}`}>
+    <html lang="en" className={`${dmSans.variable} ${poppins.variable}`}>
       <body>
         <a className="skip-link" href="#content">
           Skip to content

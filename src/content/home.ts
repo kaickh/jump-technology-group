@@ -9,33 +9,46 @@ export const hero = {
     "Jump Technology Group helps organizations with technology consulting, managed IT, and practical business advice.",
   primary: { href: "/contact/", label: "Let's talk" },
   secondary: { href: "/services/", label: "See our services" },
-} as const;
-
-export const discovery = {
-  title: "What are you looking to move forward?",
-  options: [
+  offers: [
     {
-      id: "technology",
-      prompt: "I need help with technology.",
-      body: "Consulting and implementation when a system is hard to change, poorly understood, or in the way of the work. Managed support belongs in this conversation too, when the tools need a steadier owner.",
-      action: "See technology services",
+      kicker: "Consulting",
+      title: "Technology consulting",
+      body: "Senior judgment when a system is slowing the organization down.",
       href: "/services/#technology",
     },
     {
-      id: "operations",
-      prompt: "I want to improve how my business operates.",
-      body: "Advisory on how work moves through the organization: where time is lost, what should be simpler, and which changes are worth making before another tool is bought.",
-      action: "See operational advisory",
-      href: "/services/#operations",
+      kicker: "Support",
+      title: "Managed IT",
+      body: "A known owner for the tools people rely on every day.",
+      href: "/services/#managed-it",
     },
     {
-      id: "vaultiq",
-      prompt: "I want to explore VaultIQ.",
-      body: "VaultIQ is an emerging product for turning documents into records people can find and use. It is still in development. A conversation is the right next step if document workflows are the problem you are trying to move.",
-      action: "Read about VaultIQ",
-      href: "/solutions/vaultiq/",
+      kicker: "Advisory",
+      title: "Business advisory",
+      body: "A clearer read on where time and attention are actually going.",
+      href: "/services/#operations",
     },
   ],
+} as const;
+
+export const flagship = {
+  kicker: "Flagship product",
+  titleLead: "Documents people can actually ",
+  titlePop: "find",
+  titleEnd: ".",
+} as const;
+
+export const practice = {
+  titleLead: "Start with the ",
+  titlePop: "work",
+  titleEnd: " in front of you.",
+  note: "Four ways in. Each one is a conversation, not a package with a fixed promise.",
+  labels: {
+    technology: "Technology",
+    "managed-it": "Managed IT",
+    operations: "Advisory",
+    digital: "Digital products",
+  },
 } as const;
 
 export const approach = {

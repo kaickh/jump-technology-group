@@ -14,10 +14,20 @@ function normalize(path: string) {
 export function SiteHeader() {
   const pathname = normalize(usePathname() || "/");
   const [openPath, setOpenPath] = useState<string | null>(null);
+  const [scrolled, setScrolled] = useState(false);
   const open = openPath === pathname;
   const panelRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const titleId = useId();
+
+  useEffect(() => {
+    function onScroll() {
+      setScrolled(window.scrollY > 8);
+    }
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -59,12 +69,14 @@ export function SiteHeader() {
   }, [open]);
 
   return (
-    <header className="relative z-30">
-      <div className="frame flex h-[4.5rem] items-center justify-between gap-6" id="site-bar">
+    <header
+      className={`sticky top-0 z-30 border-b bg-white ${scrolled ? "border-line" : "border-transparent"}`}
+    >
+      <div className="frame flex h-[4.25rem] items-center justify-between gap-6" id="site-bar">
         <Link href="/" aria-label="Jump Technology Group, home" className="shrink-0">
-          <Wordmark />
+          <Wordmark priority />
         </Link>
-        <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
           {navigation.map((item) => {
             const current = pathname === normalize(item.href);
             return (
@@ -72,20 +84,20 @@ export function SiteHeader() {
                 key={item.href}
                 href={item.href}
                 aria-current={current ? "page" : undefined}
-                className={current ? "text-ink" : "text-muted hover:text-ink"}
+                className={current ? "text-sm font-semibold text-ink" : "text-sm font-medium text-muted hover:text-ink"}
               >
                 {item.label}
               </Link>
             );
           })}
-          <Link href="/contact/" className="link-strong">
+          <Link href="/contact/" className="btn btn-primary">
             Let&apos;s talk
           </Link>
         </nav>
         <button
           ref={buttonRef}
           type="button"
-          className="text-sm lg:hidden"
+          className="text-sm font-semibold lg:hidden"
           aria-expanded={open}
           aria-controls="mobile-navigation"
           onClick={() => setOpenPath(open ? null : pathname)}
@@ -100,17 +112,18 @@ export function SiteHeader() {
           role="dialog"
           aria-modal="true"
           aria-labelledby={titleId}
-          className="fixed inset-0 z-40 flex flex-col bg-paper px-5 py-5 lg:hidden"
+          className="fixed inset-0 z-40 flex flex-col bg-white px-5 py-5 lg:hidden"
         >
           <div className="flex items-center justify-between">
-            <p id={titleId} className="font-serif text-2xl tracking-[-0.03em]">
+            <p id={titleId} className="sr-only">
               Menu
             </p>
-            <button type="button" onClick={() => setOpenPath(null)}>
+            <Wordmark />
+            <button type="button" className="text-sm font-semibold" onClick={() => setOpenPath(null)}>
               Close
             </button>
           </div>
-          <nav className="mt-12 flex flex-col gap-5" aria-label="Primary">
+          <nav className="mt-12 flex flex-col gap-2" aria-label="Primary">
             {navigation.map((item) => {
               const current = pathname === normalize(item.href);
               return (
@@ -118,7 +131,7 @@ export function SiteHeader() {
                   key={item.href}
                   href={item.href}
                   aria-current={current ? "page" : undefined}
-                  className="font-serif text-4xl leading-none tracking-[-0.03em]"
+                  className="rounded-2xl px-2 py-3 text-3xl font-semibold tracking-[-0.03em]"
                   onClick={() => setOpenPath(null)}
                 >
                   {item.label}
@@ -126,7 +139,7 @@ export function SiteHeader() {
               );
             })}
           </nav>
-          <Link href="/contact/" className="link-strong mt-auto pb-6 text-lg" onClick={() => setOpenPath(null)}>
+          <Link href="/contact/" className="btn btn-primary mt-auto mb-6" onClick={() => setOpenPath(null)}>
             Let&apos;s talk
           </Link>
         </div>

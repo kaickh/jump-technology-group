@@ -21,7 +21,7 @@ Then open the doc for the area you are changing:
 
 **The site is built and ready for review.** It has not been published, and AWS has not been provisioned.
 
-Direction A, terracotta-as-mark, the test headline, and Field Notes are the working baseline. Founder bio wording, VaultIQ capabilities, logo, tagline, domain, and legal review of the privacy notice are still open. See `docs/DECISIONS.md`.
+D-024 is the working visual system: logo lockup, navy / blue / teal, Poppins headlines, VaultIQ as the flagship. The test headline and Field Notes stay. Founder bio wording, VaultIQ capabilities, tagline, domain, and legal review of the privacy notice are still open. See `docs/DECISIONS.md`.
 
 ## How to work
 

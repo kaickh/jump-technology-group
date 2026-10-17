@@ -1,14 +1,37 @@
-import { site } from "@/content/site";
+import Image from "next/image";
 
 /**
- * Text identity until an official logo file is provided.
- * Replace the contents of this component with the logo image.
+ * Official lockup. Navy wordmark is for light backgrounds.
+ * The icon alone is for tight spaces and the favicon.
  */
-export function Wordmark() {
+export function Wordmark({
+  compact = false,
+  priority = false,
+}: {
+  compact?: boolean;
+  priority?: boolean;
+}) {
+  if (compact) {
+    return (
+      <Image
+        src="/brand/jump-icon.png"
+        alt=""
+        width={252}
+        height={300}
+        priority={priority}
+        className="h-9 w-auto"
+      />
+    );
+  }
+
   return (
-    <span className="flex flex-col">
-      <span className="font-serif text-[1.65rem] leading-none tracking-[-0.03em]">{site.shortName}</span>
-      <span className="mt-1 text-[0.62rem] uppercase tracking-[0.18em] text-muted">Technology Group</span>
-    </span>
+    <Image
+      src="/brand/jump-lockup-navy.png"
+      alt=""
+      width={628}
+      height={220}
+      priority={priority}
+      className="h-10 w-auto sm:h-11"
+    />
   );
 }
