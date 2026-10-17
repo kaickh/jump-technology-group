@@ -7,3 +7,10 @@ export function getContactEndpoint() {
   const raw = process.env.NEXT_PUBLIC_CONTACT_ENDPOINT ?? "local";
   return raw.trim() || "local";
 }
+
+/** Prefix a public file for GitHub Pages. next/image skips basePath when unoptimized. */
+export function publicPath(path: string) {
+  const base = (process.env.NEXT_PUBLIC_BASE_PATH ?? "").replace(/\/$/, "");
+  const normalized = path.startsWith("/") ? path : `/${path}`;
+  return `${base}${normalized}`;
+}

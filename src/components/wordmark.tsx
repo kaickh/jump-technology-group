@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { publicPath } from "@/lib/site";
 
 /**
  * Official lockup. Navy wordmark is for light backgrounds.
@@ -14,7 +15,7 @@ export function Wordmark({
   if (compact) {
     return (
       <Image
-        src="/brand/jump-icon.png"
+        src={publicPath("/brand/jump-icon.png")}
         alt=""
         width={252}
         height={300}
@@ -26,7 +27,7 @@ export function Wordmark({
 
   return (
     <Image
-      src="/brand/jump-lockup-navy.png"
+      src={publicPath("/brand/jump-lockup-navy.png")}
       alt=""
       width={628}
       height={220}
